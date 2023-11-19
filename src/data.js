@@ -46,3 +46,5 @@ export const testimonials = [
         company: ""
     }
 ]
+
+export const phone = "+5493454019821"
