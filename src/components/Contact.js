@@ -30,7 +30,7 @@ export default function Contact () {
                             <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                                 CORREO ELECTRONICO
                             </h2>
-                            <a className="text-indigo-400 leading-relaxed" key={phone}>
+                            <a href="e.sebastian.lapalma@gmail.com" className="text-indigo-400 leading-relaxed" key={phone}>
                                 e.sebastian.lapalma@gmail.com
                             </a>
                             <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
