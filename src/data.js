@@ -32,3 +32,17 @@ export const projects = [
 export const skills = [
     "HTML", "CSS", "JavaScript", "React", "Python", "Django", "Git/GitHub", "Terminal" 
 ]
+export const testimonials = [
+    {
+        name: "Laura Garcia",
+        quote: "Puedo decir que su trabajo es excepcional",
+        image: "laura-garcia.jpeg",
+        company: "Nuna Fragancias"
+    },
+    {
+        name: "",
+        quote: "",
+        image: "",
+        company: ""
+    }
+]
