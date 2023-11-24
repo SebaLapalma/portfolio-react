@@ -19,7 +19,7 @@ export default function Contact () {
         fetch("/", {
             method: "POST",
             headers: {
-                "Content-type": "application/x-www--form-urlencoded"
+                "Content-type": "application/x-www-form-urlencoded"
             },
             body: encode(
                 {
