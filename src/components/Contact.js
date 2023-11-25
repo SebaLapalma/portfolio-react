@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useRef } from "react"
+import emailjs from "@emailjs/browser"
 import { phone } from "../data"
 
 export default function Contact () {
     const [name, setname] = React.useState("")
     const [email, setEmail] = React.useState("")
     const [message, setMessage] = React.useState("")
+
+    const form = useRef()
 
     function encode(data) {
         return Object.keys(data)
@@ -14,8 +17,9 @@ export default function Contact () {
             .join("&")
     }
 
-    function handleSubmit(e) {
+    const sendEmail = (e) => {
         e.preventDefault()
+
         fetch("/", {
             method: "POST",
             headers: {
@@ -27,10 +31,16 @@ export default function Contact () {
                 }
             ),
         })
-        .then(() => alert("Mensaje enviado"))
-        .catch((error) => alert(error))
-    }
 
+        emailjs.sendForm("service_n4cqwi1", "template_09ofzih", form.current, "1GE-Skocu8fxDV4f3")
+            .then((result) => {
+                console.log(result.text)
+                alert("Mensaje enviado!")
+            }, (error) => {
+                console.log(error.text)
+            })
+    }
+    
     return(
         <section id="contact">
             <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -77,9 +87,10 @@ export default function Contact () {
                     </div>
                 </div>
                 <form
+                    ref={form}
                     netlify
                     name="contact"
-                    onSubmit={handleSubmit}
+                    onSubmit={sendEmail}
                     className="lg:w-1/3 md:w-1/2 flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
                 >
                     <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
@@ -89,27 +100,27 @@ export default function Contact () {
 
                     </p>
                     <div className="relative mb-4">
-                        <label htmlFor="name" className="leading-7 text-sm text-gray-400">
+                        <label htmlFor="user_name" className="leading-7 text-sm text-gray-400">
                             Nombre
                         </label>
                         <input 
                             required
                             type="text"
-                            id="name"
-                            name="name"
+                            id="user_name"
+                            name="user_name"
                             className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             onChange={(e) => setname(e.target.value)}
                         />
                     </div>
                     <div className="relative mb-4">
-                        <label htmlFor="email" className="leading-7 text-sm text-gray-400">
+                        <label htmlFor="user_email" className="leading-7 text-sm text-gray-400">
                             Correo electronico
                         </label>
                         <input
                             required
                             type="email"
-                            id="email"
-                            name="email"
+                            id="user_email"
+                            name="user_email"
                             className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             onChange={(e) => setEmail(e.target.value)}
                         />
