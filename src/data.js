@@ -26,11 +26,18 @@ export const projects = [
         description: "Interfaz simple de carrito de compras que almacena las elecciones",
         image: "./nunu-fragancias.jpeg",
         link: "https://nunu-fragancias-carrito-de-compras.netlify.app/"
+    },
+    {
+        title: 'Nuna Fragancias',
+        subtitle: 'React and Django',
+        description: 'e-commerce funcional, con manejo de usuarios y control de stock en backend',
+        image: './nuna-fragancias-e-commerce.jpeg',
+        link: 'https://nunafragancias.com/'
     }
 ]
 
 export const skills = [
-    "HTML", "CSS", "JavaScript", "React", "Python", "Django", "Git/GitHub", "Terminal" 
+    "HTML", "CSS", "JavaScript", "React", "Python", "Django", "NodeJS", "React Native", "Git/GitHub", "Terminal" 
 ]
 export const testimonials = [
     {
